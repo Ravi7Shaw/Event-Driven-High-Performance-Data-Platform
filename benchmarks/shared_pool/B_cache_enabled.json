@@ -1,0 +1,34 @@
+{
+  "requests": 10000,
+  "successful": 10000,
+  "failed": 0,
+  "duration_seconds": 49.10916112300015,
+  "rps": 203.6279946821679,
+  "average_latency_ms": 487.54038090230125,
+  "p50_ms": 248.9435610000328,
+  "p95_ms": 1656.0179559999142,
+  "p99_ms": 2604.80418200018,
+  "statuses": {
+    "200": 10000
+  },
+  "mode": "get",
+  "concurrency": 100,
+  "cache_capacity": 512,
+  "failure_rate": 0,
+  "rate_limit": 1000000,
+  "db_queries": 1237,
+  "cache": {
+    "size": 1,
+    "capacity": 512,
+    "ttl": 30.0,
+    "hits": 1235,
+    "misses": 2,
+    "hit_ratio": 0.9983831851253031,
+    "evictions": 0,
+    "expirations": 1
+  },
+  "final_reserved_quantity": 0,
+  "replay": "CONSISTENT",
+  "command": "eventvault --cache-capacity 512 benchmark --requests 10000 --concurrency 100",
+  "python": "3.12.14"
+}

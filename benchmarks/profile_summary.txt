@@ -1,0 +1,30 @@
+Diagnostic profile: 1000 GET requests, concurrency100, cache512.
+Profiling changes timing; this is not an additional throughput claim.
+         21439407 function calls (21374382 primitive calls) in 10.065 seconds
+
+   Ordered by: internal time
+   List reduced from 2515 to 20 due to restriction <20>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+     9662    0.950    0.000    5.357    0.001 connection_pool.py:270(_assign_requests_to_connections)
+  3056623    0.638    0.000    0.960    0.000 connection.py:192(is_idle)
+    77668    0.357    0.000    1.082    0.000 <frozen importlib._bootstrap_external>:1597(find_spec)
+   104960    0.348    0.000    1.073    0.000 _sockets.py:143(extra_attributes)
+  3053836    0.322    0.000    0.322    0.000 http11.py:288(is_idle)
+   388445    0.256    0.000    0.427    0.000 <frozen importlib._bootstrap_external>:126(_path_join)
+    77949    0.197    0.000    0.197    0.000 {built-in method posix.stat}
+     1222    0.196    0.000    0.196    0.000 {method 'poll' of 'select.epoll' objects}
+   104932    0.155    0.000    0.333    0.000 _utils.py:8(is_socket_readable)
+    19489    0.116    0.000    1.279    0.000 <frozen importlib._bootstrap_external>:1495(_get_spec)
+868813/848793    0.113    0.000    0.156    0.000 {built-in method builtins.isinstance}
+   229389    0.112    0.000    1.863    0.000 http11.py:274(has_expired)
+    19489    0.110    0.000    1.534    0.000 <frozen importlib._bootstrap>:1240(_find_spec)
+   104960    0.110    0.000    1.719    0.000 anyio.py:82(get_extra_info)
+   314852    0.107    0.000    0.241    0.000 _asyncio.py:1392(_raw_socket)
+   780093    0.102    0.000    0.102    0.000 {method 'rstrip' of 'str' objects}
+   105018    0.101    0.000    0.101    0.000 {method 'getpeername' of '_socket.socket' objects}
+   104960    0.100    0.000    1.275    0.000 _typedattr.py:62(extra)
+   532730    0.094    0.000    0.094    0.000 {method 'get' of 'dict' objects}
+   314938    0.085    0.000    0.135    0.000 transports.py:19(get_extra_info)
+
+

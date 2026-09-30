@@ -1,0 +1,58 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: eventvault
+      POSTGRES_DB: eventvault
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in your shell or .env}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U eventvault -d eventvault"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+  migrate:
+    build: .
+    image: eventvault:local
+    command: ["eventvault", "migrate"]
+    environment: &app_env
+      DATABASE_URL: ${DATABASE_URL:?Set DATABASE_URL using db as the Compose hostname}
+      APP_ENV: ${APP_ENV:-development}
+      API_TOKEN: ${API_TOKEN:-}
+      ADMIN_TOKEN: ${ADMIN_TOKEN:-}
+      WORKER_ENABLED: 'false'
+      CACHE_CAPACITY: ${CACHE_CAPACITY:-512}
+      CACHE_TTL: ${CACHE_TTL:-30}
+      RATE_LIMIT: ${RATE_LIMIT:-100}
+      RATE_LIMIT_WINDOW: ${RATE_LIMIT_WINDOW:-60}
+      WORKER_BATCH_SIZE: ${WORKER_BATCH_SIZE:-100}
+      WORKER_INTERVAL: ${WORKER_INTERVAL:-0.2}
+    depends_on:
+      db:
+        condition: service_healthy
+  api:
+    build: .
+    image: eventvault:local
+    environment: *app_env
+    ports: ["127.0.0.1:${API_PORT:-8000}:8000"]
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/ready', timeout=2)"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+    restart: unless-stopped
+  worker:
+    build: .
+    image: eventvault:local
+    command: ["eventvault", "worker"]
+    environment: *app_env
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    restart: unless-stopped
+volumes:
+  pgdata:

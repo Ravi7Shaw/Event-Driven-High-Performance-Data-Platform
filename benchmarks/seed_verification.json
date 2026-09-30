@@ -1,0 +1,15 @@
+{
+  "seed_repeatable": true,
+  "items_verified": 1000,
+  "projection_differences": 0,
+  "database": {
+    "items": 1000,
+    "events": 11000,
+    "pending": 0,
+    "dead": 0,
+    "processed": 11000
+  },
+  "worker_events": 11000,
+  "worker_seconds": 2.733717492999972,
+  "worker_events_per_second": 4023.8247105514324
+}

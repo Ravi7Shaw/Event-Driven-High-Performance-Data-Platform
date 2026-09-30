@@ -1,0 +1,6 @@
+{
+  "decisions": 100000,
+  "seconds": 0.045429520999960005,
+  "microseconds_per_decision": 0.45429520999960005,
+  "scope": "one IP, allowed path, in-process microbenchmark"
+}

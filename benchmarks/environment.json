@@ -1,0 +1,17 @@
+{
+  "measured_at": "2026-09-30",
+  "os": "Amazon Linux 2023",
+  "kernel": "6.18.49",
+  "available_cpu_cores": 4,
+  "memory_limit_bytes": 8589934592,
+  "python": "3.12.14",
+  "postgresql": "16.14",
+  "transport": "loopback HTTP/WebSocket; Unix-socket PostgreSQL",
+  "api_and_generator": "same asyncio event loop",
+  "app_processes": 1,
+  "db_pool_min": 2,
+  "db_pool_max": 20,
+  "dataset_seed_items": 1000,
+  "dataset_seed_events": 11000,
+  "notes": "Shared sandbox, single runs. Final benchmark uses one HTTP client per simulated concurrent user."
+}

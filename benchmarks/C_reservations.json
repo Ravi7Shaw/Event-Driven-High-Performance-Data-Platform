@@ -1,0 +1,36 @@
+{
+  "requests": 100,
+  "load_generator": "one persistent HTTP client per concurrent worker",
+  "successful": 50,
+  "failed": 50,
+  "duration_seconds": 0.2583274270000402,
+  "rps": 387.1056246767961,
+  "average_latency_ms": 188.40049758001214,
+  "p50_ms": 198.01399299990408,
+  "p95_ms": 228.2780289999664,
+  "p99_ms": 229.63586800005942,
+  "statuses": {
+    "200": 50,
+    "409": 50
+  },
+  "mode": "reserve",
+  "concurrency": 100,
+  "cache_capacity": 512,
+  "failure_rate": 0,
+  "rate_limit": 1000000,
+  "db_queries": 0,
+  "cache": {
+    "size": 0,
+    "capacity": 512,
+    "ttl": 30.0,
+    "hits": 0,
+    "misses": 0,
+    "hit_ratio": 0.0,
+    "evictions": 0,
+    "expirations": 0
+  },
+  "final_reserved_quantity": 100,
+  "replay": "CONSISTENT",
+  "command": "eventvault benchmark --mode reserve --requests 100 --concurrency 100",
+  "python": "3.12.14"
+}

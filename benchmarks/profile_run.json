@@ -1,0 +1,32 @@
+{
+  "requests": 1000,
+  "successful": 1000,
+  "failed": 0,
+  "duration_seconds": 9.752476465999962,
+  "rps": 102.53805825487484,
+  "average_latency_ms": 930.9246433329997,
+  "p50_ms": 642.8715609999927,
+  "p95_ms": 2727.692242999865,
+  "p99_ms": 4470.842633999837,
+  "statuses": {
+    "200": 1000
+  },
+  "mode": "get",
+  "concurrency": 100,
+  "cache_capacity": 512,
+  "failure_rate": 0,
+  "rate_limit": 1000000,
+  "db_queries": 108,
+  "cache": {
+    "size": 1,
+    "capacity": 512,
+    "ttl": 30.0,
+    "hits": 107,
+    "misses": 1,
+    "hit_ratio": 0.9907407407407407,
+    "evictions": 0,
+    "expirations": 0
+  },
+  "final_reserved_quantity": 0,
+  "replay": "CONSISTENT"
+}
